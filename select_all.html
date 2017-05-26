@@ -1,0 +1,33 @@
+<head>
+	<meta charset="utf-8">
+</head>
+<input type="checkbox" onclick="select_all(this);" name="idc" id="idc_all"/>全选
+<input type="checkbox" onclick="check_all(this);" name="idc" />北京
+<input type="checkbox" onclick="check_all(this);" name="idc" />内蒙
+<input type="checkbox" onclick="check_all(this);" name="idc" />广州
+
+<script type="text/javascript">
+    function select_all(obj) { 
+        cName = obj.name;
+        var checkboxs = document.getElementsByName(cName); 
+        for ( var i = 0; i < checkboxs.length; i+=1) { 
+            checkboxs[i].checked = obj.checked; 
+        } 
+    } 
+    function check_all(obj){
+        cName = obj.name;
+        var checkboxs = document.getElementsByName(cName);
+        all_length = checkboxs.length;
+        checked_length = 0;
+        for ( var i = 0; i < checkboxs.length; i+=1) { 
+            if(checkboxs[i].checked == true){
+            	checked_length += 1;
+            } 
+        } 
+        if(checked_length == all_length-1 && document.getElementById(cName+"_all").checked == false){
+        	document.getElementById(cName+"_all").checked = true;
+        }else{
+        	document.getElementById(cName+"_all").checked = false;
+        }
+    }
+</script>
